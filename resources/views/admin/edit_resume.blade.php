@@ -22,10 +22,10 @@
             </div>
         @endif
 
-        {{-- ✅ Main two-column layout --}}
+        {{--  Main two-column layout --}}
         <div class="flex flex-col lg:flex-row gap-8 flex-1 lg:items-stretch overflow-hidden">
 
-            {{-- ✅ Left panel: Personal info --}}
+            {{--  Left panel: Personal info --}}
             <div class="lg:w-[420px] lg:flex-shrink-0 p-6 bg-purple-200 border border-purple-200 rounded-md min-h-[750px]">
                 <div class="edit-section">
                     <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Edit Personal Information</h2>
@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-            {{-- ✅ Right panel: Switchable sections --}}
+            {{--  Right panel: Switchable sections --}}
             <div class="flex-1 min-w-0 p-6 bg-purple-200 border border-purple-200 rounded-md flex flex-col h-[750px] overflow-hidden relative">
                 <div class="form-group">
                     <label for="section-switcher" class="block font-medium mb-1">Choose a section to edit:</label>
@@ -98,7 +98,7 @@
 
                 <div class="pr-2 mt-6 border-t pt-6 flex-1 overflow-y-auto h-[650px]">
 
-                    {{-- ✅ Skills --}}
+                    {{--  Skills --}}
                     <div class="{{ $sectionClass }}" id="skills-section">
                         <h2 class="text-2xl font-semibold mb-4">Edit Skills</h2>
                         <ul class="{{ $listClass }}">
@@ -125,7 +125,7 @@
                         </form>
                     </div>
 
-                    {{-- ✅ Education --}}
+                    {{--  Education --}}
                     <div class="{{ $sectionClass }}" id="education-section">
                         <h2 class="text-2xl font-semibold mb-4">Edit Education</h2>
                         <ul class="{{ $listClass }}">
@@ -169,7 +169,7 @@
                         </form>
                     </div>
                     
-                    {{-- ✅ Experience --}}
+                    {{--  Experience --}}
                     <div class="{{ $sectionClass }}" id="experience-section">
                         <h2 class="text-2xl font-semibold mb-4">Edit Experience</h2>
                         <ul class="{{ $listClass }}">
@@ -213,7 +213,7 @@
                         </form>
                     </div>
                     
-                    {{-- ✅ Projects --}}
+                    {{--  Projects --}}
                     <div class="{{ $sectionClass }}" id="projects-section">
                         <h2 class="text-2xl font-semibold mb-4">Edit Projects</h2>
                         <ul class="{{ $listClass }}">
@@ -257,7 +257,7 @@
                         </form>
                     </div>
 
-                    {{-- ✅ Organizations --}}
+                    {{--  Organizations --}}
                     <div class="{{ $sectionClass }}" id="organizations-section">
                         <h2 class="text-2xl font-semibold mb-4">Edit Organizations</h2>
                         <p class="text-sm text-gray-600 mb-4">Note: Deleting an organization also deletes all its positions.</p>
@@ -305,8 +305,8 @@
                 </div>
         </div>
 
-        {{-- ✅ Buttons moved HERE: bottom of the two columns, but still inside the main container --}}
-        <div class="global-nav-buttons mt-8 pt-6 border-t-2 border-gray-200 text-center flex justify-center gap-4">
+        {{--  Buttons  --}}
+        <div class="global-nav-buttons mt-8 border-gray-200 text-center flex justify-center gap-4">
             <a href="{{ route('resume.public', ['user' => Auth::id()]) }}" target="_blank" 
             class="inline-block py-2 px-6 rounded-md bg-gray-600 text-white font-semibold transition hover:bg-gray-700">
                 View Public Portfolio

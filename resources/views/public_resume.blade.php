@@ -61,24 +61,66 @@
                 </div>
                 {!! $sectionDivider !!}
                 
-                <div class="section">
-                    <h2 class="text-2xl text-gray-300 mb-4">Organizations</h2>
-                    @foreach ($user->organizations as $org)
-                        <div class="{{ $sectionBoxClass }}">
-                            <p><strong class="text-white text-lg">{{ $org->name }}</strong></p>
-                            <ul class="mt-2 ml-4">
-                                @foreach ($org->positions as $pos)
-                                    <li class="mt-1">
-                                        <strong>{{ $pos->role }}</strong> ({{ $pos->year_range }})
-                                        <ul class="list-disc list-inside ml-4 text-gray-300">
-                                            <li>{{ $pos->details }}</li>
-                                        </ul>
-                                    </li>
-                                @endforeach
-                            </ul>
+<div class="section">
+    <h2 class="text-2xl text-gray-300 mb-4">Organizations</h2>
+
+    @php
+        // 1. Group all your organization entries by their 'name'
+        // This is the key step that was missing.
+        $groupedOrganizations = $user->organizations->groupBy('name');
+    @endphp
+
+    {{-- 2. Loop through each GROUP (e.g., "Junior Philippine Computer Society...") --}}
+    @foreach ($groupedOrganizations as $organizationName => $orgEntries)
+        
+        {{-- 3. This creates the main box for the *organization* --}}
+        <div class="{{ $sectionBoxClass }}">
+            
+            {{-- 4. Display the organization's name ONCE at the top --}}
+            <h3 class="text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">
+                {{ $organizationName }}
+            </h3>
+
+            {{-- 5. Loop through each entry belonging to this group --}}
+            @foreach ($orgEntries as $org)
+
+                {{-- 6. THEN loop through all positions for THAT entry --}}
+                @foreach ($org->positions as $position)
+                
+                    {{-- 7. This is the 2-column grid layout for the position --}}
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 first:pt-0">
+                        
+                        <div class="md:col-span-1 font-semibold text-white">
+                            <strong>{{ $position->role }}</strong><br>
+                            <small>{{ $position->year_range }}</small>
                         </div>
-                    @endforeach
-                </div>
+
+                        <div class="md:col-span-2 text-justify">
+                            @if($position->details)
+                                {{ $position->details }}
+                            @else
+                                <span class="text-gray-500">No details provided.</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    {{-- Add a divider line if there are more positions *in this entry* --}}
+                    @if (!$loop->last)
+                        <hr class="my-4 border-gray-700">
+                    @endif
+
+                @endforeach
+
+                {{-- Add a divider line if there is another *organization entry* in this group --}}
+                @if (!$loop->last)
+                    <hr class="my-4 border-gray-700">
+                @endif
+                
+            @endforeach
+            
+        </div>
+    @endforeach
+</div>
                 {!! $sectionDivider !!}
 
                 <div class="section">

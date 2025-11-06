@@ -23,7 +23,7 @@ class User extends Authenticatable
         'username', 
         'title',    
         'phone',    
-        'address',  
+        'address',  // <-- ADD THIS
         'summary',
     ];
 
