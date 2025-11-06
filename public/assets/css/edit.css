@@ -1,0 +1,286 @@
+/* ===============================================
+== BASE STYLES
+===============================================
+*/
+.edit-form-container {
+    /* Make the container wider for two columns */
+    min-width: 1200px;
+    max-width: 1200px; 
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+
+    /* CRITICAL FIX: 
+      Sets a default text color so it's not white-on-white.
+    */
+    color: #333; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.edit-form-container h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    color: #333; /* Ensure headings are dark */
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Ensure labels are dark */
+}
+.form-group input,
+.form-group textarea,
+.form-group select { /* Added select for the dropdown */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important */
+    color: #333; /* Ensure text inside inputs is dark */
+}
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+.error { 
+    color: #D8000C; 
+    background: #FFD2D2; 
+    padding: 10px; 
+    border-radius: 5px; 
+    margin-bottom: 15px; 
+}
+.success { 
+    color: #4F8A10; 
+    background: #DFF2BF; 
+    padding: 10px; 
+    border-radius: 5px; 
+    margin-bottom: 15px; 
+}
+
+/* This style is for the "Save Personal Info" button */
+.form-buttons {
+    margin-top: 20px;
+}
+.form-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #007bff; /* A blue color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%; /* Make it full-width */
+}
+.form-buttons button:hover {
+    background: #0056b3;
+}
+/* This is for any links that might be in a .form-buttons */
+.form-buttons a {
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #777;
+    color: white;
+    border-radius: 4px;
+}
+.form-buttons a:hover {
+    background: #555;
+}
+
+/* ===============================================
+== NEW STYLES (For CRUD sections)
+===============================================
+*/
+.edit-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+/* No border on the last section in a column */
+.edit-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.item-list { 
+    list-style: none; 
+    padding-left: 0; 
+}
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: #f9f9f9;
+}
+.item-list form { 
+    margin: 0; 
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.delete-btn:hover { 
+    background: #c82333; 
+}
+
+.add-form {
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.add-form h3 { 
+    margin-top: 0; 
+    color: #333;
+}
+.add-form .form-group { 
+    margin-bottom: 10px; 
+}
+.add-form .form-group input,
+.add-form .form-group textarea { 
+    padding: 8px; 
+}
+.add-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add-btn:hover { 
+    background: #218838; 
+}
+
+/* Universal .form-row style, now with a small gap for inputs within. */
+.form-row { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; /* Reduced gap slightly for compact input rows */
+    margin-bottom: 20px; /* Add some space below each row */
+}
+.form-row .form-group { 
+    flex: 1; /* Allows form groups to share space equally */
+    min-width: 150px; /* Prevents fields from getting too small before wrapping */
+    margin-bottom: 0; /* Remove default margin from form-group when in a row */
+}
+
+
+/* Ensure paragraph text is also dark */
+.edit-form-container p {
+    color: #333;
+}
+
+
+/* ===============================================
+== GLOBAL NAVIGATION BUTTONS
+===============================================
+*/
+.global-nav-buttons {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    text-align: center; /* Center the buttons */
+}
+/* This now *only* styles the <a> tags */
+.global-nav-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin: 0 5px; /* Add spacing */
+    background: #777;
+}
+.global-nav-buttons a:hover {
+    background: #555;
+}
+
+
+/* ===============================================
+== 2-COLUMN LAYOUT (THE FIX - AGAIN)
+===============================================
+*/
+.edit-layout-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+    gap: 30px; /* Space between columns */
+}
+
+.edit-left-column {
+    /* Set a fixed width and prevent shrinking. */
+    width: 420px; 
+    flex-shrink: 0; /* Prevents this column from shrinking */
+    
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    align-self: flex-start; /* Aligns to the start, not stretched if content is short */
+}
+/* The section inside the left column shouldn't have a border */
+.edit-left-column .edit-section {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.edit-right-column {
+    /* Grow to fill space and have a MINIMUM width. */
+    flex: 1; 
+    min-width: 500px; /* FORCES it to be wide, even when empty */
+    
+    /* Styles to make it look like a container even when empty */
+    min-height: 500px; /* Ensures it has height */
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+/* On smaller screens, make them stack */
+@media (max-width: 980px) { /* Breakpoint (420 + 500 + 30 gap = 950) */
+    .edit-layout-wrapper {
+        flex-direction: column;
+    }
+    .edit-left-column {
+        width: 100%; /* Go full-width when stacked */
+        align-self: auto; /* Reset alignment */
+    }
+    .edit-right-column {
+        min-width: 100%; /* Go full-width when stacked */
+        min-height: auto; /* Reset min-height */
+    }
+}
+
+/* ===============================================
+== SECTION SWITCHER (DROPDOWN)
+===============================================
+*/
+/* This is the new rule to hide sections by default */
+.switchable-section {
+    display: none;
+}
+
